@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-hooks */
 /**
  * @jest-environment jsdom
  */
@@ -9,6 +10,7 @@ describe('gatsby-plugin-google-analytics', () => {
     describe('onRenderBody', () => {
       describe('in non-production env', () => {
         it('does not set tracking script', () => {
+          expect.hasAssertions()
           const setHeadComponents = jest.fn()
           onRenderBody({ setHeadComponents })
           expect(setHeadComponents).not.toHaveBeenCalled()
@@ -49,6 +51,7 @@ describe('gatsby-plugin-google-analytics', () => {
         }
 
         it('sets tracking script', () => {
+          expect.hasAssertions()
           const { setHeadComponents, setPostBodyComponents } = setup()
 
           expect(setHeadComponents).toHaveBeenCalledTimes(1)
@@ -56,24 +59,28 @@ describe('gatsby-plugin-google-analytics', () => {
         })
 
         it('sets siteId', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup()
           const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
           expect(result).toMatch(/TEST_SITE_ID/)
         })
 
         it('sets matomoUrl', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup()
           const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
           expect(result).toMatch(/TEST_MATOMO_URL/)
         })
 
         it('sets siteUrl', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup()
           const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
           expect(result).toMatch(/TEST_SITE_URL/)
         })
 
         it('sets requireConsent', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup({
             requireConsent: true
           })
@@ -82,6 +89,7 @@ describe('gatsby-plugin-google-analytics', () => {
         })
 
         it('sets requireCookieConsent', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup({
             requireCookieConsent: true
           })
@@ -90,6 +98,7 @@ describe('gatsby-plugin-google-analytics', () => {
         })
 
         it('sets disableCookies', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup({
             disableCookies: true
           })
@@ -98,6 +107,7 @@ describe('gatsby-plugin-google-analytics', () => {
         })
 
         it('sets enableJSErrorTracking', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup({
             enableJSErrorTracking: true
           })
@@ -106,6 +116,7 @@ describe('gatsby-plugin-google-analytics', () => {
         })
 
         it('sets localScript', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup({
             localScript: 'TEST_LOCAL_SCRIPT'
           })
@@ -114,6 +125,7 @@ describe('gatsby-plugin-google-analytics', () => {
         })
 
         it('sets respectDnt to false', () => {
+          expect.hasAssertions()
           const { setPostBodyComponents } = setup({
             respectDnt: false
           })

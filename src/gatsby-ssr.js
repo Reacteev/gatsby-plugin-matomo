@@ -106,7 +106,7 @@ export const onRenderBody = (
   let excludePaths = ['/offline-plugin-app-shell-fallback/']
 
   if (pluginOptions && typeof pluginOptions.exclude !== 'undefined') {
-    excludePaths = pluginOptions.exclude;
+    excludePaths = pluginOptions.exclude
   }
 
   const isPathExcluded = excludePaths.some((path) => pathname === path)

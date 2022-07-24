@@ -12,6 +12,7 @@ function getDuration() {
   return difference
 }
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export const onRouteUpdate = ({ location, prevLocation }, pluginOptions) => {
   if (process.env.NODE_ENV === 'production' || window.dev === true) {
     if (!window._paq) return
@@ -37,6 +38,7 @@ export const onRouteUpdate = ({ location, prevLocation }, pluginOptions) => {
       _paq.push(['trackAllContentImpressions'])
 
       if (dev) {
+        // eslint-disable-next-line no-console
         console.debug(`[Matomo] Page view for: ${url} - ${title}`)
       }
     }
@@ -59,6 +61,7 @@ export const onRouteUpdate = ({ location, prevLocation }, pluginOptions) => {
       }
 
       if (dev) {
+        // eslint-disable-next-line no-console
         console.debug(`[Matomo] Tracking duration for: ${url}`)
       }
     }
