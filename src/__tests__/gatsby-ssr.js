@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-hooks */
 /**
  * @jest-environment jsdom
  */

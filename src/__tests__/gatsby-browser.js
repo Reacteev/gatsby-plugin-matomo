@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-hooks */
 /**
  * @jest-environment jsdom
  */
@@ -50,7 +49,6 @@ describe('gatsby-plugin-matomo', () => {
           process.env.NODE_ENV = env
         })
 
-        // eslint-disable-next-line jest/no-commented-out-tests
         // it('does not send page view when _paq is undefined', () => {
         //   delete window._paq
         //   onRouteUpdate({}, {})
